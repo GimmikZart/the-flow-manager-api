@@ -24,9 +24,9 @@ class StudentFactory extends Factory
             'registered' => $this->faker->date('Y-m-d'),
             'avatar' => 'https://picsum.photos/200',
             'email' => $this->faker->unique()->safeEmail(),
+            'fiscalCode' => $this->faker->isbn13(),
             'telephone' => $this->faker->phoneNumber(),
             'paid' => $this->faker->boolean(),
-            'paymentExpiry' => $this->faker->date('Y-m-d'),
         ];
     }
 }

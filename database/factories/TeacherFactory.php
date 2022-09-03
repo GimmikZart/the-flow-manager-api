@@ -24,7 +24,9 @@ class TeacherFactory extends Factory
             'registered' => $this->faker->date('Y-m-d'),
             'avatar' => $this->faker->image(null, 640, 480),
             'email' => $this->faker->unique()->safeEmail(),
+            'fiscalCode' => $this->faker->isbn13(),
             'telephone' => $this->faker->phoneNumber(),
+            'paid' => $this->faker->boolean(),
         ];
     }
 }

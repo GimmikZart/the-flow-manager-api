@@ -10,7 +10,7 @@ class Teacher extends Model
     use HasFactory;
     protected $primaryKey = 'teachers_id';
 
-    protected $fillable = ['name', 'lastname', 'gender', 'registered', 'avatar', 'dateOfBirth', 'email', 'telephone'];
+    protected $fillable = ['name', 'lastname', 'gender', 'dateOfBirth', 'registered', 'avatar', 'email',  'fiscalCode', 'telephone', 'paid'];
 
     public function courses()
     {

@@ -26,7 +26,6 @@ class Student extends JsonResource
             'email'         => $this->email,
             'telephone'     => $this->telephone,
             'paid'          => $this->paid,
-            'paymentExpiry' => $this->paymentExpiry,
             'created_at'    => $this->created_at,
             'updated_at'    => $this->updated_at,
         ];
