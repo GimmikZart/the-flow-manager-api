@@ -27,7 +27,7 @@ class TeacherController extends Controller
         $teacher['courses'] = DB::table('courses_teachers')
             ->join('courses', 'courses.courses_id', '=', 'courses_teachers.course_id')
             ->where('courses_teachers.teacher_id', '=', $id)
-            ->select('courses_teachers.courses_teachers_id', 'name', 'start_date', 'end_date', 'course_id', 'active', 'type', 'unit')
+            ->select('courses_teachers.courses_teachers_id', 'name', 'start_date', 'end_date', 'course_id', 'active', 'type', 'unit', 'work_hours')
             ->get();
 
         $teacher['salaries'] = DB::table('salaries')
