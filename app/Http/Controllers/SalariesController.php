@@ -37,7 +37,7 @@ class SalariesController extends Controller
                     ->where('course_id', '=', $sub->course_id)
                     ->where('payments.month', '=', $prevMonth) //prevMonth perchè considero il mese precedente
                     ->count();
-                if (true) { // rimetti " $studentsNumber > 0" dopo il test per non creare istanze di pagamento inutili quando il mese precedente ha 0 studenti
+                if ($studentsNumber > 0) { // rimetti " $studentsNumber > 0" dopo il test per non creare istanze di pagamento inutili quando il mese precedente ha 0 studenti
                     if ($sub->type == 0) { // fisso orario
                         $value = $sub->unit * $sub->work_hours;
                     } elseif ($sub->type == 1 || $sub->type == 3) { // fisso mensile o affitto
