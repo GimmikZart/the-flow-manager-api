@@ -16,6 +16,22 @@ class TeacherController extends Controller
     {
         $teachers = DB::table('teachers')
             ->get();
+
+        foreach ($teachers as $key => $teacher) {
+            $teacher->courseNumber = DB::table('courses_teachers')
+                ->where('teacher_id', '=', $teacher->teachers_id)
+                ->count();
+
+            $teacher->activeCourseNumber = DB::table('courses_teachers')
+                ->where('teacher_id', '=', $teacher->teachers_id)
+                ->where('active', '=', 0)
+                ->count();
+
+            $teacher->salaries = DB::table('salaries')
+                ->where('teacher_id', '=', $teacher->teachers_id)
+                ->where('status', '=', null)
+                ->count();
+        }
         return  $teachers;
         //return new TeacherCollection(Teacher::all());
     }

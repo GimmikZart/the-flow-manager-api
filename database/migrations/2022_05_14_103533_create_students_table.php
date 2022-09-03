@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('email', 255)->nullable();
             $table->string('fiscalCode', 255)->nullable();
             $table->string('telephone', 255)->nullable();
-            $table->boolean('paid')->nullable();
             $table->timestamps();
         });
     }

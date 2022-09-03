@@ -26,7 +26,6 @@ class TeacherFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'fiscalCode' => $this->faker->isbn13(),
             'telephone' => $this->faker->phoneNumber(),
-            'paid' => $this->faker->boolean(),
         ];
     }
 }
