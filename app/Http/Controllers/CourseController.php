@@ -48,14 +48,13 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required',
+            'price' => 'required',
         ]);
 
-        $player = Course::create($request->all());
+        $course = Course::create($request->all());
 
-        return (new CourseCollection($player))
-            ->response()
-            ->setStatusCode(201);
+        return $course;
     }
 
     public function delete($id)

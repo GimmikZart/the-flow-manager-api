@@ -35,6 +35,7 @@ Route::post('/teacher-edit', 'TeacherController@edit');
 //COURSES
 Route::get('/courses', 'CourseController@index');
 Route::get('/list-courses', 'CourseController@list');
+Route::post('/create-course', 'CourseController@store');
 
 //SUBSCRIPTION
 Route::post('/subscribe-student', 'SubscriptionController@singleSubscribe');

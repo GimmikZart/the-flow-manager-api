@@ -22,7 +22,7 @@ class TeacherFactory extends Factory
             'gender' => $this->faker->boolean(),
             'dateOfBirth' => $this->faker->date('Y-m-d'),
             'registered' => $this->faker->date('Y-m-d'),
-            'avatar' => $this->faker->image(null, 640, 480),
+            'avatar' => 'https://picsum.photos/200',
             'email' => $this->faker->unique()->safeEmail(),
             'fiscalCode' => $this->faker->isbn13(),
             'telephone' => $this->faker->phoneNumber(),
