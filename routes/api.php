@@ -34,6 +34,7 @@ Route::post('/teacher-edit', 'TeacherController@edit');
 
 //COURSES
 Route::get('/courses', 'CourseController@index');
+Route::get('/course/{id}', 'CourseController@show');
 Route::get('/list-courses', 'CourseController@list');
 Route::post('/create-course', 'CourseController@store');
 

@@ -36,7 +36,27 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        return new CourseResource(Course::findOrFail($id));
+        $course = Course::findOrFail($id);
+
+        $course['active_students'] = DB::table('courses_students')
+            ->join('students', 'students.students_id', '=', 'courses_students.student_id')
+            ->where([
+                ['courses_students.course_id', '=', $id],
+                ['courses_students.active', '=', 0]
+            ])
+            ->select('students.students_id', 'students.name', 'students.lastname', 'students.gender', 'students.telephone', 'students.email', 'students.fiscalCode', 'courses_students.start_date')
+            ->get();
+
+        $course['past_students'] = DB::table('courses_students')
+            ->join('students', 'students.students_id', '=', 'courses_students.student_id')
+            ->where([
+                ['courses_students.course_id', '=', $id],
+                ['courses_students.active', '=', 1]
+            ])
+            ->select('students.students_id', 'students.name', 'students.lastname', 'students.gender', 'students.telephone', 'courses_students.start_date', 'courses_students.end_date')
+            ->get();
+
+        return $course;
     }
 
     public function list()
